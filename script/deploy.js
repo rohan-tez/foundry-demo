@@ -17,7 +17,6 @@ contract.deploy({
 })
 .send({
     from: '<YOUR_ADDRESS>', // Address from which to deploy the contract
-    gas: 1500000, // Gas limit
 })
 .then((newContractInstance) => {
     console.log('Deployed contract address: ' + newContractInstance.options.address);
