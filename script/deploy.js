@@ -6,7 +6,7 @@ const web3 = new w3.Web3("https://node.ghostnet.etherlink.com");
 
 // Load your wallet using your private key
 const privateKey = '0x' + process.env.ETHERLINNK_KEY;
-const account = web3.eth.accounts.privateKeyToAccount(privateKey);
+const wallet = web3.eth.wallet.add(privateKey);
 
 // Read the bytecode and ABI from the files
 const bytecode = fs.readFileSync('contracts/counter.bin').toString();
@@ -21,7 +21,7 @@ contract.deploy({
     // Other parameters if required, like constructor arguments
 })
 .send({
-    from: account.address, // Address from which to deploy the contract
+    from: wallet[0].address, // Address from which to deploy the contract
     gas: 10000000,
     gasPrice:10000000000,
 })
