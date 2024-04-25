@@ -1,66 +1,31 @@
+# Etherlink Deploy Demo
+
+This repo is intended for testing the different ways people will want to deploy their contracts.
+
+## Web3.js
+
+```bash
+npm install
+node node script/deploy.js
+```
+
+## Web3.py
+
+It is recommended to install [poetry](https://python-poetry.org/docs/) first to manage your environment:
+
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+```bash
+poetry install
+poetry run python script/deploy.py
+```
+
 ## Foundry
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Once you have installed [Foundry](https://book.getfoundry.sh/getting-started/installation), run:
 
-Foundry consists of:
-
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+```bash
+forge create --rpc-url https://node.ghostnet.etherlink.com --private-key <YOUR_KEY> src/Counter.sol:Counter --legacy
 ```
