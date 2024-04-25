@@ -16,7 +16,9 @@ contract.deploy({
     // Other parameters if required, like constructor arguments
 })
 .send({
-    from: '<YOUR_ADDRESS>', // Address from which to deploy the contract
+    from: '', // Address from which to deploy the contract
+    gas: 10000000,
+    gasPrice:10000000000,
 })
 .then((newContractInstance) => {
     console.log('Deployed contract address: ' + newContractInstance.options.address);
