@@ -1,7 +1,12 @@
 const w3 = require('web3');
 const fs = require('fs');
+require('dotenv').config();
 
 const web3 = new w3.Web3("https://node.ghostnet.etherlink.com");
+
+// Load your wallet using your private key
+const privateKey = '0x' + process.env.ETHERLINNK_KEY;
+const account = web3.eth.accounts.privateKeyToAccount(privateKey);
 
 // Read the bytecode and ABI from the files
 const bytecode = fs.readFileSync('contracts/counter.bin').toString();
@@ -16,7 +21,7 @@ contract.deploy({
     // Other parameters if required, like constructor arguments
 })
 .send({
-    from: '', // Address from which to deploy the contract
+    from: account.address, // Address from which to deploy the contract
     gas: 10000000,
     gasPrice:10000000000,
 })
