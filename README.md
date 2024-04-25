@@ -6,7 +6,7 @@ This repo is intended for testing the different ways people will want to deploy 
 
 ```bash
 npm install
-node node script/deploy.js
+node script/deploy.js
 ```
 
 ## Web3.py
